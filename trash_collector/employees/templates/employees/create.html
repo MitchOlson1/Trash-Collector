@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<form action = "{% url 'employees: create' %}" method="post">
+<form action = "{% url 'employees:create' %}" method="post">
     {%csrf_token%}
     Name: <input type="text" name="name" id="name"><br />
     Address: <input type="text" name="address" id="address"><br />
