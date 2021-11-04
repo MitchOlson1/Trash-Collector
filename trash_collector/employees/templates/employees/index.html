@@ -6,6 +6,26 @@
   {% if user.is_authenticated %}
     Hello Employee {{ user.username }}!
   {% else %}
+
+  Hi {{employee_name}}<br />
+  <form action=" { url 'employees:index' %}"method="post">
+    {%csrf_token%}
+    Day: <input type ="text" name="day" id="day"><br />
+    <input type ="submit" value="search" class="btn btn -primary">
+  </form>
+
+  {% for customer in customer_in_zip%}
+    <hr>
+    Customer Name: {{customer.name}}<br/>
+    Customer Address: {{customer.address}}<br/>
+    Customer Zipcode: {{customer.zipcode}}<br/>
+    Pickup Day: {{customer.weekly_pickup}}<br/>
+
+  {% endfor %}
+
+
+  
+  {% else %}
     <p>You are at the employee index, but you are not logged in.</p>
     <a href="{% url 'login' %}">Log In</a>
     <a href="{% url 'accounts:register' %}">Sign Up</a>
